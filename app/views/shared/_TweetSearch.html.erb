@@ -1,0 +1,14 @@
+<div id="TrendTweets" class="col-lg-6" style="padding: 15px 15px 5px 10px;">
+    <div class="well sponsor">
+        <div class "align-left">
+            <h3> Tweets for selected Trend </h3>
+                <table class="table table-striped">
+                    <% @TrendTweets.each do |t| %>
+                    <tr>
+                        <th><%= t.name %></th>
+                    </tr>
+                    <% end %>
+                </table>
+        </div>
+    </div>
+</div>

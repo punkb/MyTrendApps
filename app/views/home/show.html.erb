@@ -1,0 +1,45 @@
+
+
+
+
+<div id="trendlist" class="col-lg-6" style="padding: 15px 15px 5px 10px;">
+    <div class="well sponsor">
+        <div class "align-left">
+			<h3> Top Local Twitter Trends </h3>
+				<table class="table table-striped">
+					
+				    <% @tenTrends.each do |t| %>
+				    
+					<tr>
+				        <th><%= link_to t.trendName, home_getTrendData_path(foo_params: t.trendName) %></th>
+				       
+
+				    </tr>
+				    
+					<% end %>
+					
+				</table>
+		</div>
+    </div>
+</div>
+
+
+
+
+<div id="container" class = "col-lg-6" class = "align-right"> </div>
+	<%= render partial: 'shared/showGraph'%>
+</div>
+
+
+
+
+<h1>P Retweet Count</h1> 
+<h3>Final Count</h3>
+<h1><%= @finalArray %> </h1> 
+
+			
+				    
+
+				   
+				    
+			
