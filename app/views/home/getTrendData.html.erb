@@ -3,3 +3,8 @@ home#getTrendData
 <%= @count.inspect %>
 
 <%= link_to "Back", {controller: "home", action: "show"} %>
+
+
+<div id="container" class = "col-lg-6" class = "align-right"> </div>
+	<%= render partial: 'shared/showGraph'%>
+</div>

@@ -11,11 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419133516) do
+ActiveRecord::Schema.define(version: 20140424141008) do
 
   create_table "trends", force: true do |t|
     t.string   "trendName"
     t.integer  "trendCounts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trendtweets", force: true do |t|
+    t.string   "trend"
+    t.string   "tweet"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

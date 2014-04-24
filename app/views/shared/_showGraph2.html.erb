@@ -1,62 +1,71 @@
-
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
 <script src ="/assets/javascripts/highcharts.js"></script>
 
+<script>
 
+var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+    $(function() {
 
-<script >
+        //var jsonString = $("test1").val();
+        //alert(myJSArray);
+        
+    $.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=new-intraday.json&callback=?', function(data) {
 
-$(function () {
-        $('#container').highcharts({
-            title: {
-                text: 'Monthly Average Temperature',
-                x: -20 //center
-            },
-            subtitle: {
-                text: 'Source: WorldClimate.com',
-                x: -20
-            },
-            xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-            },
-            yAxis: {
-                title: {
-                    text: 'Temperature (°C)'
-                },
-                plotLines: [{
-                    value: 0,
-                    width: 1,
-                    color: '#808080'
-                }]
-            },
-            tooltip: {
-                valueSuffix: '°C'
-            },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle',
-                borderWidth: 0
-            },
-            series:
+        // create the chart
+        $('#container').highcharts('StockChart', {
             
 
-             [{
-                name: 'Tokyo',
-                data: <%= @finalArray %>
-            }, {
-                name: 'New York',
-                data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-            }, {
-                name: 'Berlin',
-                data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-            }, {
-                name: 'London',
-                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-            }] 
+            title: {
+                text: '<%= @trend_name %> Stocks'
+            },
+            
+            xAxis: {
+                gapGridLineWidth: 5
+            },
+            
+            
+
+
+            rangeSelector : {
+                buttons : [{
+                    type : 'hour',
+                    count : 1,
+                    text : '1h'
+                }, {
+                    type : 'day',
+                    count : 1,
+                    text : '1D'
+                }, {
+                    type : 'all',
+                    count : 1,
+                    text : 'All'
+                }],
+                selected : 1,
+                inputEnabled : false
+            },
+            
+            series : [{
+                name : '<%= @trend_name %>',
+                type: 'area',
+                data : <%= @pankaj%> ,
+                gapSize: 5,
+                tooltip: {
+                    valueDecimals: 2
+                },
+                fillColor : {
+                    linearGradient : {
+                        x1: 0, 
+                        y1: 0, 
+                        x2: 0, 
+                        y2: 1
+                    },
+                    stops : [[0, Highcharts.getOptions().colors[0]], [5, '#DDDF0D']]
+                },
+                threshold: null
+            }]
         });
     });
-    
+});
 </script>
+

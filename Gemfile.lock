@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/kugaevsky/mousetrap-rails.git
+  revision: 9f7164d05ee3fb049b57ce81d05eaba30b39646f
+  specs:
+    mousetrap-rails (1.4.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -27,7 +33,6 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
     arel (4.0.2)
-    atomic (1.1.16)
     buftok (0.2.0)
     builder (3.1.4)
     coffee-rails (4.0.1)
@@ -46,13 +51,13 @@ GEM
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    hashie (2.0.5)
+    hashie (2.1.1)
     hike (1.2.3)
     http (0.5.0)
       http_parser.rb
     http_parser.rb (0.6.0)
     i18n (0.6.9)
-    jbuilder (1.5.3)
+    jbuilder (1.5.2)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
     jquery-rails (3.1.0)
@@ -97,16 +102,16 @@ GEM
       activesupport (= 4.0.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.2.2)
+    rake (10.3.1)
     rdoc (4.1.1)
       json (~> 1.4)
     roauth (0.0.8)
-    sass (3.2.18)
-    sass-rails (4.0.2)
+    sass (3.2.19)
+    sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
-      sprockets-rails (~> 2.0.0)
+      sprockets-rails (~> 2.0)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -122,13 +127,12 @@ GEM
       sprockets (~> 2.8)
     sqlite3 (1.3.9)
     thor (0.19.1)
-    thread_safe (0.3.1)
-      atomic (>= 1.1.7, < 2)
+    thread_safe (0.3.3)
     tilt (1.4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.1)
+    turbolinks (2.2.2)
       coffee-rails
     tweetstream (1.0.5)
       daemons
@@ -159,6 +163,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  mousetrap-rails!
   omniauth-twitter (~> 1.0.1)
   protected_attributes
   rails (= 4.0.4)
