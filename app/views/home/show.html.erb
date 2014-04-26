@@ -1,47 +1,30 @@
 
+<button>get the data</button>
 
-<div id = "TopTrendList" class ="container">
-	<div id="trendlist" class="col-lg-6" style="padding: 15px 15px 5px 10px;">
-	    <div class="well sponsor">
-	        <div class "align-left">
-				<h3> Top Local Twitter Trends </h3>
-					<div class = "model">
-						<table class="table table-striped table-hover">
-							<thead>
-					            <tr>
-					                <th>Trend</th>
-					                <th>Counts</th>
-					            </tr>
-			        		</thead> <% for i in 0..(@finalArray.length-1) %>
-						    		
-								<tr>
-							        <td><%= link_to @temp[i], home_getTrendData_path(foo_params: @temp[i]) %></td>
-							        
-							        <td><%= @finalArray[i] %></td>
-							    </tr>
-									<% end %>
-									
-						</table>
-					</div>
-			</div>
-	    </div>
-	</div>
+
+<div class = "container ">
+<%= render partial: 'shared/trendList'%>
 </div>
 
 
 
-<div id="Tweet" class = "col-lg-6" class = "align-right"> </div>
-	<%= render partial: 'shared/showTrendTweets'%>
-</div>
+<script >
 
-<header id="Aboutus" class="hero-unit">
-  <div class="row-fluid">
-    <hgroup class="span12">
-      <h1 class="logo-mark xl">Timeline<span><em>JS</em></span></h1>
-      <h2 class="intro">Beautifully crafted timelines that are easy and intuitive to use.</h2>
-      <p><a href="#make" class="btn btn-large btn-success" data-scroll="true">Make a timeline now</a></p>
-    </hgroup>
-  </div>
-</header>
-				    
-			
+/*$(document).ready(function(){
+	$.post("home/retweet_count",
+		function(data){
+			alert(data)
+		});
+
+       });
+ */
+
+ $(document).ready(function(){
+    $.get("home/retweet_count",function(data,status){
+      
+    });
+  });
+
+
+
+ </script>
