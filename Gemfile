@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'protected_attributes'
 gem 'mousetrap-rails', github: 'kugaevsky/mousetrap-rails' # to gie keyboard Shortcuts 
+gem 'remotipart', '~> 1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'

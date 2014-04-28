@@ -1,0 +1,35 @@
+<div id = "TopTrendList" class ="container">
+  <div id="trendlist" class="col-lg-6" style="padding: 15px 15px 5px 10px;">
+      <div class="well sponsor">
+          <div class "align-left">
+        <h3> Top # to Bet for you !! </h3>
+        <div class = "model">
+            <table id = "trendtable" class="table table-hover">
+             <thead>
+              <td>#</td>
+              <td>Amount</td>
+              <td>Date</td>
+
+             </thead>
+
+             <tr>
+              <td>1</td>
+              <td>10.0</td>
+              <td>10 Apr 2014</td>
+
+
+             </tr>
+                        
+                  
+                
+            </table>
+          </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<%= form_tag("/home/account", :method=>"get") do %>
+  <%= text_field_tag(:balance) %>
+  <%= submit_tag("Add", :class=>"btn") %>
+<% end %>

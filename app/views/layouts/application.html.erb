@@ -1,75 +1,122 @@
 <!DOCTYPE html>
+<meta http-equiv="Refresh" content="3000">
 <html>
 <head>
+  <meta charset="utf-8">
   <title>TrendStock</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
- <link rel="stylesheet" href="/assets/stylesheets/bootswatch.min.css" media="all" >
-<script src="assets/javascript/jquery-1.11.0.min.js"></script>
- 
+ <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" media="all" >
+ <link rel="stylesheet" href="/assets/stylesheets/bootstrap-responsive.min.css" media="all" >
+ <link rel="stylesheet" href="/assets/stylesheets/bootslider.css" media="all">
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
+ <script type="text/javascript" src="/assets/javascripts/bootslider.css"></script>
+ <script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+
+
+
+
+  
+
+
+  <script type="text/javascript" src="assets/javascripts/scripts.js"></script>
+
+
+
   <%= csrf_meta_tags %>
+
+
+
 </head>
 <body>
-<div class="bs-docs-section clearfix">
-        <div class="row">
-          <div class="col-lg-12">
+
+
+
+
+ <div class="container">
+  <div class="navbar navbar-default navbar-fixed-top">
+
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/"><img src="/demo2/public/images/BET-now-button.gif"> </a> 
+        <a class="navbar-brand" href="/">#Bet#</a>
+      </div>
+      <div class="navbar-collapse collapse navbar-responsive-collapse">
+        <ul class="nav navbar-nav">
+          <li class=""><a href="/">Home</a></li>
+          <li><a href="#AboutUs" data-scroll="true" >About US</a></li>
+          <li><a href="#AboutUs" data-scroll="true" >My Account</a></li>
+          <% if current_user %>
+          <li><%= render 'formAddBalance'%>
+           Your Balance is <%= current_user.banance %> Euro !!</li>
+          
             
 
-            <div class="bs-component">
-              <div class="navbar navbar-default">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">TredStock</a>
-                </div>
-                 <div class="navbar-collapse collapse navbar-responsive-collapse">
-                  <ul class="nav navbar-nav">
-                   <li><a href="#Aboutus" data-scroll="true" >About US</a></li>
-                    <li><a href="#">Link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-                              
-                  <form class="navbar-form navbar-left">
-                    <input class="form-control col-lg-8" placeholder="Search" type="text">
-                  </form>
-                  <ul class="nav navbar-nav navbar-right">
-        
-                    <li>            
-                        <% if current_user %>
-                            <h5>Signed in as <%= current_user.name %>! </h5>
-                    </li>
-                            <li> <h5> <%= link_to "Sign out", signout_path %> </h5></li>
-                        <% else %>
-                            <li> <%= link_to "Sign in with Twitter", "/auth/twitter" %> </li>
-                        <% end %>
-                    
+             
+             
 
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+             
+ 
+              <%else%> 
 
+              <li>Sign in To start betting !!</li>
+              <% end %>
+              <a href="/"><img src="/demo2/public/images/BET-now-button.gif"> </a> 
+
+            <!--
+            <li <div id="timer">
+This is only valid for the next <input id="minutes" type="text" style=" font-weight: bold;"> minutes and <input id="seconds" type="text" style="width: 26px; border: none; background-color:none; font-size: 16px; font-weight: bold;"> seconds.
+</div> -->
+          </li>
+        </ul>
+         <ul class="nav navbar-nav navbar-right">
+          <% if current_user %> 
+            <li> <h5>Signed in as <%= current_user.name %>! </h5></li>
             
-
-          </div>
+             <li><h5> <%= link_to "Sign out", signout_path %> </h5> 
+                <% else %>
+                <%= link_to "Sign in with twitter", "/auth/twitter" %> 
+                <% end %>
+              </li>
+            </ul>
         </div>
       </div>
-                
+
+
+
+
+
+
+
+    <%= yield %>
+    <section id="AboutUs">
+      <div class="page-header">
+    <h1>About Us
+      
+    </h1>
+  </div>
    
+asdnfkajsbf jsdhkf ds
+dalfgkjdg 
+dfkjgadj fg
 
+</section>
 
-<%= yield %>
-
+  </div>
 
 
 </body>
+
+ 
+
+
+
+
+
  <footer>
 <div class="container">
 <p>Put together in less than five minutes by </p>
@@ -84,5 +131,8 @@
     <div id="footer-outer"></div>
     </div>
   </footer>
+  <script>
+countdown();
+</script>
 
 </html>

@@ -7,19 +7,19 @@
 				<h3>  Twitts </h3>
 				<div class = "pre-scrollable">
 					<div class = "model">
-						<table class="table table-striped table-hover">
-							<thead>
+						<thead>
 					            <tr>
-					                <th>Twets</th>
 					                <th>Counts</th>
 					            </tr>
-			        		</thead> 
-						    		<% @trendtweets.each do |t| %>
+			        		</thead> <% for i in 0..(@retweet_count_array.length-1) %>
+						    		
 								<tr>
-							        <td><%= t.trend %></td>
-							        <td><%= t.tweet %></td>
+							        
+							        	<td><%= @retweet_count_array[i] %></td>
+							        
+							        
 							    </tr>
-							    <%end%>
+									<% end %>
 									
 						</table>
 					</div>

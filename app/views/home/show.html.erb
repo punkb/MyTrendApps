@@ -1,30 +1,130 @@
 
-<button>get the data</button>
 
 
-<div class = "container ">
-<%= render partial: 'shared/trendList'%>
+<div class="container">
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+      <div class="row clearfix">
+        <div class="col-md-3 column">
+          <div class = "well">
+            <div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel primary</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+          </div>
+        </div>
+        <div class="col-md-5 column">
+          <div class = "well">
+           
+            <%= image_tag 'me.png', :size => "420x200" %>
+           </div>
+          <%= render partial: 'shared/trendList'%>
+        </div>
+        <div class="col-md-4 column" data-toggle="tooltip" data-placement="left" title="Click Here To Bet Now !!">
+           <%= render partial: 'tweetPanal'%>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 
+
+<!--
+<div id = "test" class="jumbotron text-center">
+    <h1>Welcome to Bet#</h1>
+    <p class="lead">Where Betting becomes Fun & Fun is betting</p>
+    <p><a class="btn btn-large btn-success" href="http://bootply.com/tagged/bootstrap-3" target="ext">Sign In</a></p>
+    <p><input type="image" src="/public/images/BET-now-button.gif" alt="Bet-Now"></p>
+  </div>
+-->
+
+
+
+
+ 
+	<!--
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <%= image_tag 'mountain-250x200.jpg' %>
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+-->
+
+	<!--
+	<div id ="Mycarousel" class = "col-lg-5">
+      <div id="slider-fixed-banner" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="active item" float:right>
+            <%= image_tag 'mountain-250x200.jpg' %>
+            <div class="carousel-caption">
+              <h4>Awesome slide title goes here</h4>
+              <p>
+                sdfdsf
+              </p>
+            </div>
+          </div>
+          <div class="item">
+            <%= image_tag 'mountain-250x200.jpg' %>
+            <div class="carousel-caption">
+              <h4>Slide title</h4>
+              <p>
+                Few attractive words about the slide goes here.Few attractive words about the slide goes here.
+              </p>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#slider-fixed-banner" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#slider-fixed-banner" data-slide="next">&rsaquo;</a>
+      </div>
+    </div> -->
+ 
+
+
+<script>
+
+
+ 
+
+
+$('#trendlist').countdown({2: 5, 
+    layout: '{sn} {sl}, {mn} {ml}'});
+</script>
+
+<script>
+$("container").click(function(){
+
+	
+		alert("td")}
+	});
+});
+
+
+</script>
+
+
 <script >
-
-/*$(document).ready(function(){
-	$.post("home/retweet_count",
-		function(data){
-			alert(data)
-		});
-
-       });
- */
-
  $(document).ready(function(){
-    $.get("home/retweet_count",function(data,status){
-      
+    $.get("home/retweet_count.json",function(data,status){
+//    console.log("Data: " + data + "\nStatus: " + status);
+//$("#c1").text(data["retweet_count"]);
+  $.each(data,function(key,value){
+    alert(key+" - "+value.question.title + " - "+value.question.created_at+" ...")
+})
     });
-  });
-
+       
+    });
+ 
 
 
  </script>

@@ -1,27 +1,68 @@
-<div id = "TopTrendList" class ="container">
-	<div id="trendlist" class="col-lg-6" style="padding: 15px 15px 5px 10px;">
+
+
+<div id = "TopTrendList" class ="well" data-toggle="tooltip" data-placement="top" title="Click on Trend Name to see the graphical analysis  !!">
+	<div id="trendlist">
 	    <div class="well sponsor">
 	        <div class "align-left">
-				<h3> Top Local Twitter Trends </h3>
-					<div class = "model">
-						<table class="table table-striped table-hover">
-							<thead>
-					            <tr>
-					                <th>Trend</th>
-					                <th>Counts</th>
-					            </tr>
-			        		</thead> <% for i in 0..(@temp.length-1) %>
-						    		
-								<tr>
-							        <td><%= link_to @temp[i], home_getTrendData_path(foo_params: @temp[i]) %></td>
-							        
-							        
-							    </tr>
+				<h3> Top # to Bet for you !! </h3>
+				<div class = "model">
+						<table id = "trendtable" class="table ">
+							<tr>
+								<td> 
+				        		<% for i in 0..(@temp.length-1) %>
+							    	<table id = "subTable" class="table table-hover">
+										<span>
+										<tr>
+									      
+									        	<p align="left" >
+									        	<%= link_to @temp[i], home_getTrendData_path(foo_params: @temp[i]), id: [i], data: { keybinding: '' }   %>
+									        </p>
+									       
+									        
+									        	<p align="top-right" >
+									        	<button type="button" class="btn-custom-green" data-toggle="tooltip" data-placement="left" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><i class="icon-white icon-arrow-down"><%= 100/(i+1) %> + </button>
+									        	
+									        	<button type="button" class="btn-custom-red" data-toggle="tooltip" data-placement="right" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><%= 100 /(i+1) %> - </button>
+
+									        	<button type="button" class="btn-custom-red" data-toggle="tooltip" data-placement="right" title="Click Here To Bet Now !!" style = "width:60px" onclick="myToggle()"> click </button>
+									        </p>
+									       
+									        
+									    </tr>
+									    </span>
+									    <span>
+									   
+									    	
+									    	<td id = "subTableRow2" class = "well">
+												<marquee>TEXT</marquee>
+											
+										</td>
+										
+										</span>
+
+									</table>
+								        
 									<% end %>
-									
+								</td>
+							</tr>
 						</table>
 					</div>
 			</div>
 	    </div>
 	</div>
 </div>
+
+</script>
+<script>
+
+
+;
+ 
+
+
+$(document).ready(function(){
+  $("div").find("table").css({"color":"red","border":"2px solid red"});
+  });
+});
+</script>
+

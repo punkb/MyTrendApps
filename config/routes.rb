@@ -8,8 +8,11 @@ Demo2::Application.routes.draw do
     resource :home, only: [:show]
     root to: 'home#show'
  get "home/getTrendData", :as => 'home_getTrendData' 
+ get "home/account"
 
  get "home/retweet_count"
+
+
 
     get '/TrendSearch' => 'home#TrendSearch', :as => 'home_TrendSearch'
     #match 'TrendSearch(:url)', to: 'home#TrendSearch', via: [:get, :post]

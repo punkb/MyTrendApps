@@ -21,55 +21,29 @@ class HomeController < ApplicationController
                 config.access_token = current_user.oauth_token
                 config.access_token_secret = current_user.oauth_secret
               end  #Initializing Client with Users credentials 
-          end
+    end
 
-    #get the top trends from twitter API call
-    #Store the trend Names into an Array (@temp)
-    @topTrends  = @client.trends() 
+   
+    @allTrends = Trends.all
+    @topTrends = Trends.last(10)
       @topTrends.each do |t|
-      @temp << t.name  
+      @temp << t.trendName  
       end
-Rails.cache.write("@temp",@temp)
-       #@trendtweets = Trendtweets.all.order("trend")
 
-    #call Twitter API Search for each trend 
-    #Collect the retweet counts for each trend Name (@finalArray)
-    #collect each tweet of the trends into trendtweets DB
-    #Save New data to database (TrendName, TrendCounts)
+     # @balance = current_user.banance
+
+
   end 
 
   def retweet_count
     load_tweet
+    getTrendData
  @retweet_count_array = []
-
-     #to collect the retweet counts
-
-    for i in 0..9
-      trends = Trends.new()
-      #trend_tweets = Trendtweets.new() 
-      @t = 0 
-      @FirstTrend = @client.search(@temp[i])
-      @FirstTrend.each do |t| 
-        @t = @t + t.retweet_count 
-        #trend_tweets.trend = @temp[i]
-        #trend_tweets.tweet = t.text
-        #trend_tweets.save
-      end 
-        @retweet_count_array << @t
-        trends.trendCounts = @retweet_count_array[i]
-        trends.trendName = @temp[i]
-        trends.save
-    end 
-
-    #respond_to do |format|
-    #  format.js
-    # format.json
-    # format.xml
-    #end
 
   end
 
   def getTrendData  #returns retweet counts for DB for perticular trends 
+    load_tweet
     @count = []
     @time = []
     if params[:foo_params]
@@ -89,6 +63,35 @@ Rails.cache.write("@temp",@temp)
       @graphArray[i][0] = @time[i].to_i
       @graphArray[i][1] = @count[i]  
     end
+  end
+  respond_to do |format|
+    format.html
+    format.json {render :json => @trendsData }
+  end
+
+  def account
+    load_tweet
+    @newamount = params[:balance]
+    @user = User.where(uid: current_user.uid)
+
+
+#@current_balance = @user.banance
+ #   @newamount = (@balance.to_i) + ((params[:foo_params]).to_i)
+  #  @current_balance.update_attributes!(@newamount)
+
+
+      @user.each do |t|
+        
+
+        t.banance = t.banance + @newamount.to_i
+         t.save
+      end
+
+   
+   redirect_to root_path
+
+
+    
   end
 
 
