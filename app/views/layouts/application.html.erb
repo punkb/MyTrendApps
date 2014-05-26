@@ -9,9 +9,9 @@
  <link rel="stylesheet" href="/assets/stylesheets/bootstrap.min.css" media="all" >
  <link rel="stylesheet" href="/assets/stylesheets/bootstrap-responsive.min.css" media="all" >
  <link rel="stylesheet" href="/assets/stylesheets/bootslider.css" media="all">
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
- <script type="text/javascript" src="/assets/javascripts/bootslider.css"></script>
- <script type="text/javascript" src="/assets/javascripts/bootstrap.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"> </script>
+ <script type="text/javascript" src="assets/javascripts/bootslider.css"></script>
+ <script type="text/javascript" src="assets/javascripts/bootstwatch.js"></script>
 
 
 
@@ -42,30 +42,21 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/"><img src="/demo2/public/images/BET-now-button.gif"> </a> 
-        <a class="navbar-brand" href="/">#Bet#</a>
+        <a class="navbar-brand" href="/" data-toggle="tooltip" data-placement="right" title="Click Here To See Home Page">#Bet#</a>
       </div>
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
-          <li class=""><a href="/">Home</a></li>
-          <li><a href="#AboutUs" data-scroll="true" >About US</a></li>
-          <li><a href="#AboutUs" data-scroll="true" >My Account</a></li>
+          <li class="" data-toggle="tooltip" data-placement="left" title="Click Here To Bet" ><a href="/">Home</a></li>
+          <li><a href="#AboutUs" data-scroll="true" data-toggle="tooltip" data-placement="left" title="Wanna Know more About Us ?" >About US</a></li>
+          <li><a href="#AboutUs" data-scroll="true" data-toggle="tooltip" data-placement="left" title="Click Here to See your Accounts" >My Account</a></li>
           <% if current_user %>
-          <li><%= render 'formAddBalance'%>
-           Your Balance is <%= current_user.banance %> Euro !!</li>
+          <li><%= render 'formAddBalance'%></li>
+           <li><h5><p class="text-info">Your Balance is <%= number_to_currency(current_user.balance  ) %> </h5></p> </li>
           
-            
-
-             
-             
-
-             
- 
               <%else%> 
 
-              <li>Sign in To start betting !!</li>
+              <li><%= link_to "Sign in To start Bet !!", "/auth/twitter",  type: "button", class: "btn btn-danger", title: 'Click Here to Sign In', rel: 'tooltip' %></li>
               <% end %>
-              <a href="/"><img src="/demo2/public/images/BET-now-button.gif"> </a> 
 
             <!--
             <li <div id="timer">
@@ -76,12 +67,15 @@ This is only valid for the next <input id="minutes" type="text" style=" font-wei
          <ul class="nav navbar-nav navbar-right">
           <% if current_user %> 
             <li> <h5>Signed in as <%= current_user.name %>! </h5></li>
+             <ul class="nav navbar-nav">
             
-             <li><h5> <%= link_to "Sign out", signout_path %> </h5> 
+             <li class="" data-toggle="tooltip" data-placement="left" title="Click Here To Bet" ><%= link_to "Sign out", signout_path %>
                 <% else %>
-                <%= link_to "Sign in with twitter", "/auth/twitter" %> 
-                <% end %>
+                <li class="" data-toggle="tooltip" data-placement="left" title="Click Here To Bet" ><%= link_to "Sign in with twitter", "/auth/twitter" %> 
+                
               </li>
+              <% end %>
+              </ul>
             </ul>
         </div>
       </div>
@@ -93,18 +87,7 @@ This is only valid for the next <input id="minutes" type="text" style=" font-wei
 
 
     <%= yield %>
-    <section id="AboutUs">
-      <div class="page-header">
-    <h1>About Us
-      
-    </h1>
-  </div>
-   
-asdnfkajsbf jsdhkf ds
-dalfgkjdg 
-dfkjgadj fg
-
-</section>
+    
 
   </div>
 
@@ -117,20 +100,6 @@ dfkjgadj fg
 
 
 
- <footer>
-<div class="container">
-<p>Put together in less than five minutes by </p>
-
-
-      
-        <div class="copyright">
-          &copy; Copyright 2014 <span title="TrendStock">Trenndstock Inc.</span>
-        </div>
-      </div><!-- end #footer-wrapper -->
-    </div><!-- end #footer -->
-    <div id="footer-outer"></div>
-    </div>
-  </footer>
   <script>
 countdown();
 </script>

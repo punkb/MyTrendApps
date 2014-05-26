@@ -15,16 +15,16 @@
 										<tr>
 									      
 									        	<p align="left" >
-									        	<%= link_to @temp[i], home_getTrendData_path(foo_params: @temp[i]), id: [i], data: { keybinding: '' }   %>
+									        	<%= link_to @temp[i], home_getTrendData_path(foo_params: @temp[i]), id: [i], data: { keybinding: [i] }   %>
 									        </p>
 									       
 									        
 									        	<p align="top-right" >
-									        	<button type="button" class="btn-custom-green" data-toggle="tooltip" data-placement="left" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><i class="icon-white icon-arrow-down"><%= 100/(i+1) %> + </button>
+									        	<button type="button" class="btn btn-success" data-toggle="tooltip" data-placement="left" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><i class="icon-white icon-arrow-down"><%= 100/(i+1) %> + </button>
 									        	
-									        	<button type="button" class="btn-custom-red" data-toggle="tooltip" data-placement="right" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><%= 100 /(i+1) %> - </button>
+									        	<button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Click Here To Bet Now !!" style = "width:60px" onclick="betResult()"><%= 100 /(i+1) %> - </button>
 
-									        	<button type="button" class="btn-custom-red" data-toggle="tooltip" data-placement="right" title="Click Here To Bet Now !!" style = "width:60px" onclick="myToggle()"> click </button>
+									        	
 									        </p>
 									       
 									        
@@ -33,8 +33,8 @@
 									    <span>
 									   
 									    	
-									    	<td id = "subTableRow2" class = "well">
-												<marquee>TEXT</marquee>
+									    	<td id = "subTableRow2" class = "well" >
+												<marquee>@pankks I have placed a bet on #cocukkatilleriasılsın #Bet..cool aplication</marquee>
 											
 										</td>
 										

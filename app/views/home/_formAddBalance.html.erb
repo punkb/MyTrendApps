@@ -1,6 +1,8 @@
 <%= form_tag("/home/account", :method=>"get") do %>
-  <%= text_field_tag(:balance) %>
-  <%= submit_tag("Quick Deposite", :class=>"btn-custom-blue") %>
+  <li><%= number_field_tag(:balance, nil, min: 0) %>
+
+
+   <%= submit_tag("Quick Deposite",  :class=>"btn btn-primary") %></li>
 <% end %>
 
 

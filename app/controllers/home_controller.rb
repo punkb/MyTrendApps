@@ -30,8 +30,9 @@ class HomeController < ApplicationController
       @temp << t.trendName  
       end
 
-     # @balance = current_user.banance
+     # @balance = current_user.balance
 
+@user_timeline = @client.home_timeline
 
   end 
 
@@ -72,10 +73,12 @@ class HomeController < ApplicationController
   def account
     load_tweet
     @newamount = params[:balance]
+   
+      
     @user = User.where(uid: current_user.uid)
 
 
-#@current_balance = @user.banance
+#@current_balance = @user.balance
  #   @newamount = (@balance.to_i) + ((params[:foo_params]).to_i)
   #  @current_balance.update_attributes!(@newamount)
 
@@ -83,7 +86,7 @@ class HomeController < ApplicationController
       @user.each do |t|
         
 
-        t.banance = t.banance + @newamount.to_i
+        t.balance = t.balance + @newamount.to_i
          t.save
       end
 
@@ -91,7 +94,7 @@ class HomeController < ApplicationController
    redirect_to root_path
 
 
-    
+   
   end
 
 

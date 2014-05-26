@@ -12,8 +12,12 @@
 //
 
 //= require jquery
+//= require bootstrap
 //= require jquery_ujs
 //= require jquery.remotipart
+
+
+
 //= require mousetrap
 //= require turbolinks
 //= require_tree .

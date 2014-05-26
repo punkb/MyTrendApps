@@ -2,33 +2,18 @@
 
 <div class ="row">
 
-	<div id ="trendlist" class = "col-lg-5">
-		<%= render partial: 'shared/trendList'%>
+	<div id ="trendlist" class = "col-lg-6">
+		<%= render partial: 'shared/showTrendList'%>
 	</div>
-	<div id="container" class = "col-lg-5" >
-		<div class = "well">
-           
-           
-           
+	<div id="container" class = "col-lg-6" >
            
 	<%= render partial: 'shared/showGraph'%>
 	 
-	</div>
-	<div id="container" class = "col-lg-2" >
-		<%= image_tag 'me.png', :size => "420x200" %>
-	</div>
 	
+
 </div>
-</div?
 	
 
 
 
 
-<h1>Use JQuery UI for drag and drop</h1>
-<h2>create a separate function in controller for accessng search tweet</h2>
-<h2>Add Blueimp for carousel nice layout and also few bookmarked sites</h2>
-
-<%= @count.inspect %>
-
-<%= link_to "Back", {controller: "home", action: "show"}, data: { keybinding: 'h' }  %>
